@@ -1,0 +1,7 @@
+# 대용량 원본 (GitHub 100MB 제한 초과) — scripts/download_ibtracs.sh 로 받으세요
+1-typhoon/data/ibtracs.*.csv
+
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
