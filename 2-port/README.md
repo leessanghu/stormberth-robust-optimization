@@ -40,6 +40,34 @@ backlog는 재현되지 않았고, 이것이 *"Vessel Bunching은 컨테이너�
 
 ---
 
+## 23개 항만 패널 (주 분석)
+
+부산 1개만 보면 "9월이라 원래 그런 것 아니냐"에 답할 수 없어,
+**19개 컨테이너항 × 2,874일 이중차분**으로 넓혔습니다.
+
+```
+log(1+기항수)_it = Σ_k β_k·1[상대일=k] + 항만FE_i + 날짜FE_t + ε_it
+```
+
+날짜FE가 "그날 세계가 조용했다"를, 항만FE가 "홍콩이 부산보다 크다"를 걷어냅니다.
+
+```
+상륙일     -83.7%  [-88.0, -77.9]
+이튿날     -44.3%  [-57.4, -27.1]
+사흘 뒤    +16.3%  [ +1.8, +32.7]   <- Vessel Bunching
+```
+
+사전 추세(D-7~D-4)는 전부 비유의, 플라시보 20회는 전부 ±4% 안.
+34kt 노출시간이 길수록 더 멈추는 용량-반응도 단조입니다.
+전체 결과는 [`docs/findings.md`](../docs/findings.md)에 있습니다.
+
+```bash
+python 2-port/scripts/panel_build.py   # 패널 구축 (노출 파일 필요)
+python 2-port/scripts/panel_did.py     # 이중차분
+```
+
+---
+
 ## 모형에 무엇을 공급하는가
 
 이 프로젝트는 **최적화 모형과 알고리즘**이 결과물입니다. 데이터는 두 가지 일을 합니다.
@@ -53,8 +81,8 @@ backlog는 재현되지 않았고, 이것이 *"Vessel Bunching은 컨테이너�
 ```
 파라미터            출처              값
 도착률 λ            PortWatch 실측    일평균 33척
-폐쇄 지속 T_reopen   PortWatch 실측    1~3일
-도착 집중 배수       PortWatch 실측    D+1~D+3에 1.3~1.8배
+폐쇄 지속 T_reopen   DiD 용량반응      약 6-12h / 중 12-24h / 강 24-72h
+도착 집중 배수       DiD 실측          D+3에 +16% (컨테이너항 +20%)
 기항당 작업량        PortWatch 실측    중앙 10,300톤, Q1-Q3 8,900-12,000
 선석 수 B, 크레인 q̄  BPA 터미널 제원    공개 자료
 처리시간 H_i        작업량 ÷ 생산성    위 분포 + 크레인 생산성 가정
@@ -74,7 +102,9 @@ backlog는 재현되지 않았고, 이것이 *"Vessel Bunching은 컨테이너�
 scripts/
   download_portwatch.py   PortWatch 내려받기 (대상 항만 필터, 수 분)
   busan_event.py          부산 이벤트별 일별 추이 + 누적적체
-  busan_summary.py        부산 에피소드별 병목 지표 요약   ← 주력
+  busan_summary.py        부산 에피소드별 병목 지표 요약
+  panel_build.py          23개항 × 2,874일 패널 구축 (노출 결합)
+  panel_did.py            이중차분 이벤트 스터디            ← 주력
   workload_calib.py       기항당 작업량 분포 (H_i 보정용)
 data/
   portwatch/daily_ports.csv        일별 항만활동 (10MB)
@@ -83,6 +113,9 @@ output/
   busan_episode_summary.csv   에피소드별 지표   ← 가장 많이 쓰는 파일
   busan_event_trend.csv       일별 추이 (offset −14 ~ +28)
   workload_calibration.csv    기항당 작업량 분포
+  panel.parquet               항만×날짜 패널 66,102행
+  did_event_study.csv         이벤트 스터디 계수            ← 핵심 결과
+  did_robustness.csv          강건성 7개 사양
 ```
 
 ## 실행

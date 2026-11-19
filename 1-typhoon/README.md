@@ -56,7 +56,9 @@ IKE는 **태풍 자체의 크기**지 특정 항만이 받은 충격이 아닙�
 scripts/
   download_ibtracs.sh   IBTrACS 내려받기 (110MB, git에 없음)
   ike_exposure.py       IKE + 한국 항만 노출 계산
-  asia_ports.py         아시아 23개 항만으로 확장 (일본·대만·중국 포함)
+  asia_ports_def.py     항만 좌표 23개 (단일 출처)
+  asia_ports.py         아시아 항만 태풍별 노출 집계
+  exposure_daily.py     항만×날짜 노출 패널            ← 패널 분석 입력
 data/
   ibtracs.WP.list.v04r01.csv   원본 (gitignore)
 output/
