@@ -36,10 +36,11 @@
 |---|---|---|
 | [`1-typhoon/`](1-typhoon/) | **태풍 쪽** — IBTrACS 트랙에서 IKE와 항만별 노출시간 계산 | [README](1-typhoon/README.md) |
 | [`2-port/`](2-port/) | **항만 쪽** — 23개항 패널 이중차분으로 태풍 전후 병목 추정 | [README](2-port/README.md) |
-| [`docs/`](docs/) | 결과 요약, 데이터 수집 명세 | |
+| [`3-model/`](3-model/) | **모형 쪽** — 선석·크레인 배정 최적화 (구현 중) | [README](3-model/README.md) |
+| [`docs/`](docs/) | 결과 요약, 수집 명세, 역할 분담 | [roles](docs/roles.md) |
 | [`proposal/`](proposal/) | 제안서 PDF | |
 
-각 폴더는 `scripts/`(코드) · `data/`(원본) · `output/`(결과 CSV)로 같은 모양입니다.
+1·2단계 폴더는 `scripts/`(코드) · `data/`(원본) · `output/`(결과 CSV)로 같은 모양입니다.
 
 ---
 
@@ -55,10 +56,9 @@ bash 1-typhoon/scripts/download_ibtracs.sh      # 약 110MB, 1분
 python 2-port/scripts/download_portwatch.py     # 약 10MB, 수 분
 
 # 3. 분석 (저장소 루트에서 실행)
-python 1-typhoon/scripts/ike_exposure.py \
-       1-typhoon/data/ibtracs.WP.list.v04r01.csv \
-       1-typhoon/output/storms.csv 1-typhoon/output/port_exposure.csv
-python 2-port/scripts/busan_summary.py          # 부산 에피소드별 병목 지표
+python 1-typhoon/scripts/exposure_daily.py      # 항만×날짜 노출 패널
+python 2-port/scripts/panel_build.py            # 패널 결합
+python 2-port/scripts/panel_did.py              # 이중차분     ← 주 결과
 ```
 
 > 모든 스크립트는 **저장소 루트에서** 실행합니다. 경로가 루트 기준으로 쓰여 있습니다.
@@ -80,6 +80,8 @@ python 2-port/scripts/busan_summary.py          # 부산 에피소드별 병목 
 
 ## 팀원에게
 
+- **뭘 맡을지 보려면 → [`docs/roles.md`](docs/roles.md)**
+- **모형을 구현하려면 → [`3-model/README.md`](3-model/README.md)**
 - 결과만 보고 싶으면 → [`docs/findings.md`](docs/findings.md)
 - 태풍 지표를 고치고 싶으면 → [`1-typhoon/README.md`](1-typhoon/README.md)
 - 항만 분석을 늘리고 싶으면 → [`2-port/README.md`](2-port/README.md)

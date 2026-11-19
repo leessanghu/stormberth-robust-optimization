@@ -64,7 +64,8 @@ data/
 output/
   storms.csv                   태풍별 IKE·최대풍속·부산 최근접거리
   port_exposure.csv            태풍 × 항만 노출시간  ← 가장 많이 쓰는 파일
-  asia_port_exposure.csv       2023년 이후 아시아 23개 항만
+  asia_port_exposure.csv       2023년 이후 아시아 21개 항만 × 태풍
+  exposure_daily.csv           항만×날짜 노출 421건 (2018-)  ← 패널 분석 입력
   event_study_design.csv       이벤트 스터디 설계 (처치/대조 구분)
   busan_collection_windows.csv 부산 19개 에피소드의 수집 윈도우
 ```
@@ -76,7 +77,8 @@ bash 1-typhoon/scripts/download_ibtracs.sh
 python 1-typhoon/scripts/ike_exposure.py \
        1-typhoon/data/ibtracs.WP.list.v04r01.csv \
        1-typhoon/output/storms.csv 1-typhoon/output/port_exposure.csv
-python 1-typhoon/scripts/asia_ports.py
+python 1-typhoon/scripts/asia_ports.py       # 태풍별 집계
+python 1-typhoon/scripts/exposure_daily.py   # 항만×날짜 패널  ← 2단계 입력
 ```
 
 ## 주요 결과
