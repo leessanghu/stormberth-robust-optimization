@@ -4,7 +4,7 @@
 태풍 강도를 IKE로 정량화해 운영 시나리오를 만들고, 그 시나리오들의 최악 상황에서도
 총 체류시간이 크게 늘지 않는 배정을 찾습니다.
 
-제안서: [`proposal/항만최적화_Proposal_이상후.pdf`](proposal/)
+제안서: [`proposal/항만최적화_Proposal.pdf`](proposal/)
 
 ---
 
