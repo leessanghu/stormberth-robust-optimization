@@ -28,7 +28,7 @@
 | 폴더 | 내용 | 안내 |
 |---|---|---|
 | [`1-typhoon/`](1-typhoon/) | **태풍 쪽** — IBTrACS 트랙에서 IKE와 항만별 노출시간 계산 | [README](1-typhoon/README.md) |
-| [`2-port/`](2-port/) | **항만 쪽** — PortWatch·울산 데이터로 태풍 전후 병목 분석 | [README](2-port/README.md) |
+| [`2-port/`](2-port/) | **항만 쪽** — PortWatch 일별 항만활동으로 태풍 전후 병목 분석 | [README](2-port/README.md) |
 | [`docs/`](docs/) | 결과 요약, 데이터 수집 명세 | |
 | [`proposal/`](proposal/) | 제안서 PDF | |
 
@@ -64,7 +64,7 @@ python 2-port/scripts/busan_summary.py          # 부산 에피소드별 병목 
 |---|---|---|---|
 | 태풍 베스트트랙 | [IBTrACS v04r01 (NOAA)](https://www.ncei.noaa.gov/products/international-best-track-archive) | 불필요 | ✗ 110MB |
 | 일별 항만활동 | [IMF PortWatch](https://portwatch.imf.org) | 불필요 | ✗ 스크립트로 |
-| 울산 선석배정 | [공공데이터포털 15121258](https://www.data.go.kr/data/15121258/fileData.do) | 불필요 | ○ |
+| ~~울산 선석배정~~ | [공공데이터포털 15121258](https://www.data.go.kr/data/15121258/fileData.do) | 불필요 | ✗ 사용 중단 |
 
 수집하려다 막힌 경로와 그 이유는 [`docs/collection-spec.md`](docs/collection-spec.md)에 정리돼 있습니다.
 **BPA 본선작업현황 API는 폐기됐고, PORT-MIS는 2년치만 조회됩니다.** 같은 길을 다시 파지 마세요.
