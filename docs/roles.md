@@ -11,11 +11,9 @@
 | 팀원 | 담당 | 작성 파일 | 솔버 | 선행 조건 |
 |---|---|---|---|---|
 | **A** | 로버스트 · 완전정보 · 공용 하네스 · **MILP 코어** | `planners/robust.py` `planners/perfect.py` `core/` `run_all.py` | 직접 작성 | 없음 |
-| **B** | FCFS · 골든 테스트 | `planners/fcfs.py` `tests/golden.py` | **불필요** | A의 1주차 |
-| **C** | 결정론 nominal · 터미널 제원 조사 | `planners/nominal.py` | 코어 호출 | 조사는 지금 가능 |
-| **D** | 확률계획 SAA · 실증 보강 · 문서 | `planners/saa.py` `docs/` | 코어 호출 | 실증·문서는 지금 가능 |
-
-누가 어느 역할을 맡을지는 **아직 정하지 않았다.** 아래는 일의 묶음이다.
+| **B** | FCFS  | `planners/fcfs.py` `tests/golden.py` | **불필요** | A의 1주차 |
+| **C** | 결정론 nominal | `planners/nominal.py` | 코어 호출 | 조사는 지금 가능 |
+| **D** | 확률계획 SAA | `planners/saa.py` `docs/` | 코어 호출 | 실증·문서는 지금 가능 |
 
 **MILP를 처음부터 짜는 사람은 A 한 명이다.** nominal·SAA·로버스트는 제약이 전부 같고
 목적함수만 다르므로, 제약은 `core/milp.py` 한 곳에만 둔다.
@@ -143,15 +141,7 @@ time limit, 시드, Γ를 자기 코드 안에 하드코딩하지 않는다.
 
 **1주차가 전부다.** 하네스가 안 나오면 셋이 동시에 논다.
 
----
 
-## 이번 학기에 넣지 않는 것
-
-보고서에 "향후 과제"로 명시한다.
-
-- 행 생성(row generation) → 소규모 시나리오 집합 + 꼭짓점 열거로 대체
-- 조정 가능 recourse 전체 → 정책 제한 recourse로 고정
-- 대규모 인스턴스 → 선박 20~30척, 선석 4~6개 규모
 
 ---
 
