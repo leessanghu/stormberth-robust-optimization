@@ -45,6 +45,31 @@ def plan(inst, cfg):
     return {"sequence": {...}, "cranes": {...}}
 ```
 
+### 내 방법이 뭔지 모르겠으면 — 하나씩만 보세요
+
+**B · FCFS (선착순)**
+→ [Berth-Scheduler (GitHub)](https://github.com/Lixiang878/Berth-Scheduler)
+
+돌아가는 코드가 있습니다. `FCFS | first-come-first-served greedy | baseline`로
+구현돼 있으니 그 부분만 보면 됩니다. 논문은 안 읽어도 됩니다.
+개념 자체가 "먼저 온 배부터 빈 선석에 넣는다"가 전부입니다.
+
+**C · nominal (결정론 선석·크레인 배정)**
+→ [Integrated Berth Allocation and Quay Crane Assignment (DTU, 무료 PDF)](https://backend.orbit.dtu.dk/ws/files/121760131/Integrated_Berth_Allocation.pdf)
+
+우리가 푸는 문제의 **MILP 수식이 그대로 나와 있습니다.** 변수 정의와 제약을 보면
+`core/milp.py`에 뭘 넣어야 하는지 감이 옵니다. 앞의 모형 정의 부분만 보면 충분합니다.
+
+**D · SAA (표본평균근사)**
+→ [Shapiro, Monte Carlo Sampling Approach (ESAIM, 무료 PDF)](https://www.esaim-proc.org/articles/proc/pdf/2003/01/Shapiro.pdf)
+
+"기댓값을 최소화한다"를 실제로 어떻게 푸는지 설명합니다. 핵심은 한 줄입니다 —
+**진짜 기댓값 대신 시나리오 K개를 뽑아 그 평균을 최소화한다.**
+K를 늘리면 진짜 답에 수렴한다는 게 이 방법의 근거입니다.
+
+> 셋 다 **깊게 안 읽어도 됩니다.** 개념 한 줄과 수식 모양만 잡으면
+> 나머지는 `core/milp.py` 호출입니다.
+
 ---
 
 ## 지켜야 할 규칙 3개
