@@ -226,6 +226,7 @@ scripts/
   panel_build.py          23개항 × 2,874일 패널 구축 (노출 결합)
   panel_did.py            이중차분 이벤트 스터디            ← 주력
   workload_calib.py       기항당 작업량 분포 (H_i 보정용)
+  busan_surge.py          태풍별 부산 몰림 표
 data/
   portwatch/daily_ports.csv        일별 항만활동 (10MB)
   portwatch/ports_database.csv     항만 메타데이터 (portid 조회용)
@@ -236,6 +237,7 @@ output/
   panel.parquet               항만×날짜 패널 66,102행
   did_event_study.csv         이벤트 스터디 계수            ← 핵심 결과
   did_robustness.csv          강건성 7개 사양
+  busan_surge.csv             태풍별 몰림 요약
 ```
 
 ## 실행
