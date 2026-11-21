@@ -37,7 +37,19 @@
 
 자세한 분담은 [`docs/roles.md`](../docs/roles.md)에 있습니다.
 
-**각자 짜는 건 함수 하나뿐입니다.**
+**각자 폴더가 있습니다. 거기만 보면 됩니다.**
+
+| 담당 | 내 폴더 |
+|---|---|
+| FCFS | [`tasks/fcfs/`](tasks/fcfs/) |
+| nominal | [`tasks/nominal/`](tasks/nominal/) |
+| 로버스트 | [`tasks/robust/`](tasks/robust/) |
+| 완전정보 | [`tasks/perfect/`](tasks/perfect/) |
+
+공통 사항은 [`tasks/_COMMON.md`](tasks/_COMMON.md)에 있습니다. **그것부터 읽으세요.**
+
+각 폴더에는 설명(`README.md`)과 채울 파일(`plan.py`) 둘뿐입니다.
+채우는 건 함수 하나입니다.
 
 ```python
 def plan(inst, cfg):
@@ -143,22 +155,22 @@ solver.solve(timeLimit=600)   # 이렇게 자기 코드에 박아두면 안 됨
 
 ```
 config.yaml           공유 설정 (time limit, 시드, Γ, 격자)
-core/
+core/                 공용 코드 — 아무도 수정하지 않음 (A만)
   schema.py           인스턴스·stage1 스키마 + 검증
-  recourse.py    ★    공용 복구 규칙 — 팀원 A만 수정
+  recourse.py    ★    공용 복구 규칙 (2단계)
   evaluate.py         지표 계산
   milp.py        ★    공용 MILP 코어 — 제약은 여기 한 곳에만
   arrivals.py         도착 과정 생성 (실측 계수 -> 도착 시각)
-planners/
-  fcfs.py             팀원 B
-  nominal.py          팀원 C
-  saa.py              팀원 D
-  robust.py           팀원 A
-  perfect.py          팀원 A
+tasks/                담당자별 폴더 — 내 것만 보면 됨
+  _COMMON.md          전원 공통 안내
+  fcfs/               README.md + plan.py
+  nominal/
+  robust/
+  perfect/
 instances/            인스턴스 + 실현 시나리오 (같이 커밋)
 tests/golden.py       손으로 푼 답과 대조
 run_all.py            전부 동일 조건으로 실행
-make_samples.py       1주차용 샘플 인스턴스
+make_samples.py       샘플 인스턴스 생성
 ```
 
 ---

@@ -1,0 +1,18 @@
+# 모든 방법이 공유하는 설정. 어떤 planner도 이 값을 자기 안에 하드코딩하지 않는다.
+run:
+  time_limit_s: 60        # MILP 솔버 1회 제한. 모든 MILP 방법 동일
+  n_realization: 20       # 인스턴스당 실현 시나리오 수
+  seed: 20261119
+
+scenario:
+  n_scenario_saa: 15      # SAA가 모형 안에서 쓰는 시나리오 수 (평가용과 별개)
+  gamma: 3                # 로버스트 불확실성 예산 Γ
+
+uncertainty:              # 실측 기반 (docs/findings.md)
+  arrival_jitter_h: 4.0   # 도착 시각 교란 폭 (±)
+  workload_cv: 0.237      # 작업량 변동계수 — 부산 실측
+  kappa_range: [0.6, 0.9] # 크레인 생산성 저하 (민감도 대상)
+
+grid:                     # 혼잡도 격자
+  rho: [0.60, 0.75, 0.90]
+  t_close_h: [12, 24, 48] # 용량-반응 3등급: 약/중/강
