@@ -143,7 +143,7 @@ solver.solve(timeLimit=600)   # 이렇게 자기 코드에 박아두면 안 됨
 1. docs/roles.md 에서 내가 뭘 맡는지 확인
 2. 아래 '환경 만들기' 대로 설치
 3. python 3-model/tests/golden.py  로 공용 코드가 제대로 도는지 확인
-4. 내 담당 파일(planners/○○.py)의 plan() 채우기
+4. 내 폴더(tasks/○○/plan.py)의 plan() 채우기
 5. python 3-model/run_all.py --only ○○  로 내 것만 돌려보기
 ```
 
@@ -233,10 +233,10 @@ def build(inst, scenarios, aggregate):
 C·D는 이걸 호출만 한다.
 
 ```python
-# planners/nominal.py — C
+# tasks/nominal/plan.py — C
 return solve(build(inst, [nominal_scenario(inst)], "nominal"))
 
-# planners/saa.py — D
+# tasks/saa/plan.py — D
 return solve(build(inst, sample(inst, cfg["scenario"]["n_scenario_saa"]), "mean"))
 ```
 

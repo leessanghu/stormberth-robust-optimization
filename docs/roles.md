@@ -10,10 +10,10 @@
 
 | 팀원 | 담당 | 작성 파일 | 솔버 | 선행 조건 |
 |---|---|---|---|---|
-| **A** | 로버스트 · 완전정보 · 공용 하네스 · **MILP 코어** | `planners/robust.py` `planners/perfect.py` `core/` `run_all.py` | 직접 작성 | 없음 |
-| **B** | FCFS  | `planners/fcfs.py` `tests/golden.py` | **불필요** | A의 1주차 |
-| **C** | 결정론 nominal | `planners/nominal.py` | 코어 호출 | 조사는 지금 가능 |
-| **D** | 확률계획 SAA | `planners/saa.py` `docs/` | 코어 호출 | 실증·문서는 지금 가능 |
+| **A** | 로버스트 · 완전정보 · 공용 하네스 · **MILP 코어** | `tasks/robust/` `tasks/perfect/` `core/` `run_all.py` | 직접 작성 | 없음 |
+| **B** | FCFS | `tasks/fcfs/plan.py` | **불필요** | A의 1주차 |
+| **C** | 결정론 nominal | `tasks/nominal/plan.py` | 코어 호출 | 조사는 지금 가능 |
+| **D** | 확률계획 SAA | `tasks/saa/plan.py` | 코어 호출 | 실증·문서는 지금 가능 |
 
 **MILP를 처음부터 짜는 사람은 A 한 명이다.** nominal·SAA·로버스트는 제약이 전부 같고
 목적함수만 다르므로, 제약은 `core/milp.py` 한 곳에만 둔다.
