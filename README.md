@@ -39,7 +39,7 @@
 | [`1-typhoon/`](1-typhoon/) | **태풍 쪽** — 항만이 강풍에 노출된 시간 계산 | [README](1-typhoon/README.md) |
 | [`2-port/`](2-port/) | **항만 쪽** — 23개항 패널 이중차분으로 태풍 전후 병목 추정 | [README](2-port/README.md) |
 | [`3-model/`](3-model/) | **모형 쪽** — 선석·크레인 배정 최적화 (구현 중) | [README](3-model/README.md) |
-| [`docs/`](docs/) | 결과 요약, 수집 명세, 역할 분담 | [roles](docs/roles.md) |
+| [`docs/`](docs/) | 결과 요약, 수집 명세 | [findings](docs/findings.md) |
 | [`proposal/`](proposal/) | 제안서 PDF | |
 
 1·2단계 폴더는 `scripts/`(코드) · `data/`(원본) · `output/`(결과 CSV)로 같은 모양입니다.
@@ -82,8 +82,7 @@ python 2-port/scripts/panel_did.py              # 이중차분     ← 주 결�
 
 ## 팀원에게
 
-- **뭘 맡을지 보려면 → [`docs/roles.md`](docs/roles.md)**
-- **모형을 구현하려면 → [`3-model/README.md`](3-model/README.md)**
+- **모형을 구현하려면 → [`3-model/START.md`](3-model/START.md)**
 - 결과만 보고 싶으면 → [`docs/findings.md`](docs/findings.md)
 - 태풍 지표를 고치고 싶으면 → [`1-typhoon/README.md`](1-typhoon/README.md)
 - 항만 분석을 늘리고 싶으면 → [`2-port/README.md`](2-port/README.md)

@@ -36,7 +36,7 @@
 | 완전정보 | [`tasks/perfect/`](tasks/perfect/) |
 | 로버스트 · SAA | [`tasks/robust/`](tasks/robust/) [`tasks/saa/`](tasks/saa/) |
 
-분담은 [`docs/roles.md`](../docs/roles.md) 에 있습니다. **[`START.md`](START.md) 부터 읽으세요.**
+**[`START.md`](START.md) 부터 읽으세요.**
 
 각 폴더에는 `README.md` 와 `plan.py` 둘뿐입니다. 채우는 건 함수 하나입니다.
 
