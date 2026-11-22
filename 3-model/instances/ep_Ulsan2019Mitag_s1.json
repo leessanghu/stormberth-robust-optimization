@@ -1,0 +1,303 @@
+{
+ "id": "ep_Ulsan2019Mitag_s1",
+ "meta": {
+  "port": "울산",
+  "season": 2019,
+  "storm": "MITAG",
+  "closure": "2019-10-02",
+  "calls_observed": [
+   0.0,
+   95.0,
+   80.0
+  ],
+  "base_calls": 43.3,
+  "peak_ratio": 2.26,
+  "share": 0.176,
+  "h34": 6.0,
+  "IKE": 209,
+  "dist_km": 112,
+  "source": "PortWatch daily_ports.csv + 1-typhoon/output/asia_port_exposure.csv"
+ },
+ "berths": [
+  {
+   "id": "B1",
+   "length_m": 400,
+   "q_max": 4
+  },
+  {
+   "id": "B2",
+   "length_m": 400,
+   "q_max": 4
+  },
+  {
+   "id": "B3",
+   "length_m": 350,
+   "q_max": 4
+  },
+  {
+   "id": "B4",
+   "length_m": 300,
+   "q_max": 4
+  }
+ ],
+ "cranes": {
+  "total": 12,
+  "rate_tph": 390.0
+ },
+ "vessels": [
+  {
+   "arrival_h": 25.32,
+   "loa_m": 330,
+   "workload_t": 7219.0,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V01"
+  },
+  {
+   "arrival_h": 26.37,
+   "loa_m": 200,
+   "workload_t": 17771.6,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V02"
+  },
+  {
+   "arrival_h": 27.63,
+   "loa_m": 250,
+   "workload_t": 5699.7,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V03"
+  },
+  {
+   "arrival_h": 32.22,
+   "loa_m": 330,
+   "workload_t": 12899.1,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V04"
+  },
+  {
+   "arrival_h": 35.03,
+   "loa_m": 200,
+   "workload_t": 68479.0,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V05"
+  },
+  {
+   "arrival_h": 37.32,
+   "loa_m": 250,
+   "workload_t": 57355.2,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V06"
+  },
+  {
+   "arrival_h": 38.88,
+   "loa_m": 200,
+   "workload_t": 2470.7,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V07"
+  },
+  {
+   "arrival_h": 40.85,
+   "loa_m": 200,
+   "workload_t": 31902.2,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V08"
+  },
+  {
+   "arrival_h": 40.98,
+   "loa_m": 294,
+   "workload_t": 4641.7,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V09"
+  },
+  {
+   "arrival_h": 41.22,
+   "loa_m": 294,
+   "workload_t": 11694.8,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V10"
+  },
+  {
+   "arrival_h": 41.32,
+   "loa_m": 330,
+   "workload_t": 46719.5,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V11"
+  },
+  {
+   "arrival_h": 41.82,
+   "loa_m": 200,
+   "workload_t": 5368.0,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V12"
+  },
+  {
+   "arrival_h": 44.69,
+   "loa_m": 330,
+   "workload_t": 8518.2,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V13"
+  },
+  {
+   "arrival_h": 45.79,
+   "loa_m": 200,
+   "workload_t": 5934.5,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V14"
+  },
+  {
+   "arrival_h": 45.89,
+   "loa_m": 294,
+   "workload_t": 7105.6,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V15"
+  },
+  {
+   "arrival_h": 46.55,
+   "loa_m": 330,
+   "workload_t": 7962.1,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V16"
+  },
+  {
+   "arrival_h": 47.07,
+   "loa_m": 250,
+   "workload_t": 4102.8,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V17"
+  },
+  {
+   "arrival_h": 48.32,
+   "loa_m": 250,
+   "workload_t": 5240.1,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V18"
+  },
+  {
+   "arrival_h": 51.45,
+   "loa_m": 250,
+   "workload_t": 3123.4,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V19"
+  },
+  {
+   "arrival_h": 55.03,
+   "loa_m": 250,
+   "workload_t": 11455.0,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V20"
+  },
+  {
+   "arrival_h": 56.33,
+   "loa_m": 200,
+   "workload_t": 920.9,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V21"
+  },
+  {
+   "arrival_h": 57.13,
+   "loa_m": 250,
+   "workload_t": 4053.4,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V22"
+  },
+  {
+   "arrival_h": 58.14,
+   "loa_m": 200,
+   "workload_t": 3377.7,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V23"
+  },
+  {
+   "arrival_h": 58.2,
+   "loa_m": 250,
+   "workload_t": 6560.5,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V24"
+  },
+  {
+   "arrival_h": 58.47,
+   "loa_m": 250,
+   "workload_t": 1890.0,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V25"
+  },
+  {
+   "arrival_h": 63.46,
+   "loa_m": 250,
+   "workload_t": 1973.6,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V26"
+  },
+  {
+   "arrival_h": 64.03,
+   "loa_m": 294,
+   "workload_t": 26342.8,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V27"
+  },
+  {
+   "arrival_h": 64.82,
+   "loa_m": 200,
+   "workload_t": 17396.2,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V28"
+  },
+  {
+   "arrival_h": 67.75,
+   "loa_m": 330,
+   "workload_t": 3282.5,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V29"
+  },
+  {
+   "arrival_h": 70.33,
+   "loa_m": 200,
+   "workload_t": 3451.6,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V30"
+  },
+  {
+   "arrival_h": 71.85,
+   "loa_m": 200,
+   "workload_t": 4253.2,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V31"
+  }
+ ],
+ "recovery": {
+  "t_reopen_h": 24.0,
+  "kappa": 0.75,
+  "kappa_recover_h": 12.0
+ },
+ "horizon_h": 72.0
+}

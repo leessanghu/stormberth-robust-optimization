@@ -18,7 +18,7 @@ ie.PORTS = {
     "샤먼":(24.48,118.07), "선전":(22.58,114.27), "홍콩":(22.30,114.12),
 }
 
-df = ie.load("1-typhoon/data/ibtracs.WP.list.v04r01.csv", season_min=2023)
+df = ie.load("1-typhoon/data/ibtracs.WP.list.v04r01.csv", season_min=2019)
 df["IKE_TJ"] = df.apply(ie.ike_row, axis=1)
 
 rows=[]
@@ -39,7 +39,7 @@ for sid, g in df.groupby("SID", sort=False):
 out=pd.DataFrame(rows)
 out.to_csv("1-typhoon/output/asia_port_exposure.csv",index=False)
 pd.set_option("display.width",220); pd.set_option("display.unicode.east_asian_width",True)
-print(f"2023년 이후 항만-태풍 노출 조합: {len(out)}건\n")
+print(f"2019년 이후 항만-태풍 노출 조합: {len(out)}건\n")
 print("=== 노출시간(34kt) 상위 25 ===")
 t=out.sort_values(["h34","h50"],ascending=False).head(25)
 print(t[["season","name","port","t0","dist","h34","h50","h64","vmax","IKE"]].round(0).to_string(index=False))

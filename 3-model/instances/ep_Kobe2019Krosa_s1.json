@@ -1,0 +1,167 @@
+{
+ "id": "ep_Kobe2019Krosa_s1",
+ "meta": {
+  "port": "고베",
+  "season": 2019,
+  "storm": "KROSA",
+  "closure": "2019-08-14",
+  "calls_observed": [
+   0.0,
+   5.0,
+   52.0
+  ],
+  "base_calls": 29.7,
+  "peak_ratio": 1.79,
+  "share": 0.257,
+  "h34": 18.0,
+  "IKE": 283,
+  "dist_km": 255,
+  "source": "PortWatch daily_ports.csv + 1-typhoon/output/asia_port_exposure.csv"
+ },
+ "berths": [
+  {
+   "id": "B1",
+   "length_m": 400,
+   "q_max": 4
+  },
+  {
+   "id": "B2",
+   "length_m": 400,
+   "q_max": 4
+  },
+  {
+   "id": "B3",
+   "length_m": 350,
+   "q_max": 4
+  },
+  {
+   "id": "B4",
+   "length_m": 300,
+   "q_max": 4
+  }
+ ],
+ "cranes": {
+  "total": 12,
+  "rate_tph": 390.0
+ },
+ "vessels": [
+  {
+   "arrival_h": 34.33,
+   "loa_m": 200,
+   "workload_t": 3073.5,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V01"
+  },
+  {
+   "arrival_h": 51.38,
+   "loa_m": 294,
+   "workload_t": 13734.7,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V02"
+  },
+  {
+   "arrival_h": 54.36,
+   "loa_m": 294,
+   "workload_t": 10229.4,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V03"
+  },
+  {
+   "arrival_h": 54.69,
+   "loa_m": 200,
+   "workload_t": 4705.9,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V04"
+  },
+  {
+   "arrival_h": 54.77,
+   "loa_m": 200,
+   "workload_t": 5614.3,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V05"
+  },
+  {
+   "arrival_h": 55.68,
+   "loa_m": 250,
+   "workload_t": 2368.7,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V06"
+  },
+  {
+   "arrival_h": 57.07,
+   "loa_m": 330,
+   "workload_t": 1048.1,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V07"
+  },
+  {
+   "arrival_h": 59.99,
+   "loa_m": 200,
+   "workload_t": 6116.0,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V08"
+  },
+  {
+   "arrival_h": 60.74,
+   "loa_m": 200,
+   "workload_t": 18566.9,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V09"
+  },
+  {
+   "arrival_h": 62.45,
+   "loa_m": 330,
+   "workload_t": 11717.0,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V10"
+  },
+  {
+   "arrival_h": 66.09,
+   "loa_m": 294,
+   "workload_t": 3977.4,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V11"
+  },
+  {
+   "arrival_h": 67.48,
+   "loa_m": 294,
+   "workload_t": 9427.1,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V12"
+  },
+  {
+   "arrival_h": 69.59,
+   "loa_m": 250,
+   "workload_t": 2990.8,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V13"
+  },
+  {
+   "arrival_h": 71.41,
+   "loa_m": 250,
+   "workload_t": 13517.7,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V14"
+  }
+ ],
+ "recovery": {
+  "t_reopen_h": 24.0,
+  "kappa": 0.75,
+  "kappa_recover_h": 12.0
+ },
+ "horizon_h": 72.0
+}

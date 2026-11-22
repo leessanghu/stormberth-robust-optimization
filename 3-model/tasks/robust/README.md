@@ -1,6 +1,6 @@
 # robust — 2단계 로버스트 최적화 (우리 연구의 본체)
 
-> 공통 안내를 먼저 읽으세요 → [`../_COMMON.md`](../_COMMON.md)
+> 공통 안내 → [`../../START.md`](../../START.md)
 
 ## 내가 할 일
 
@@ -42,16 +42,17 @@
 
 ## 내가 만들어야 공통 코드가 돌아갑니다
 
-이 역할은 **다른 셋의 선행 조건**입니다. 1주차에 아래를 먼저 커밋하세요.
+**공용 코드는 이미 올라와 있습니다.**
+곧바로 자기 `plan.py` 부터 시작하면 됩니다.
 
 ```
 core/milp.py       제약을 한 곳에 모은 MILP 코어
-                   build(inst, scenarios, aggregate) 형태로
-                   aggregate = "nominal" | "mean" | "max"
+                   build(inst, scenarios, mode) 형태로
+                   mode = "mean" | "minmax"
 core/arrivals.py   실측 계수 -> 도착 시각 생성
 ```
 
-`core/milp.py`가 나와야 nominal 담당이 착수할 수 있습니다.
+`core/milp.py`·`core/planutil.py` 둘 다 올라와 있으므로 네 명이 동시에 착수할 수 있습니다.
 
 ## 목적함수가 다를 뿐 제약은 같습니다
 

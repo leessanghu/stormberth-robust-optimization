@@ -5,3 +5,6 @@ pyarrow>=15.0
 # 패널 분석용
 statsmodels>=0.14
 scipy>=1.11
+
+# config.yaml 읽기 (없으면 기본값으로 돌아가 비교가 불공정해짐)
+pyyaml>=6.0

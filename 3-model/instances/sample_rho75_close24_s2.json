@@ -36,7 +36,7 @@
    "id": "V01",
    "arrival_h": 22.94,
    "loa_m": 200,
-   "workload_t": 7942.7,
+   "workload_t": 2923.0,
    "q_min": 1,
    "q_max": 4
   },
@@ -44,7 +44,7 @@
    "id": "V02",
    "arrival_h": 4.06,
    "loa_m": 294,
-   "workload_t": 9060.6,
+   "workload_t": 4642.2,
    "q_min": 1,
    "q_max": 4
   },
@@ -52,7 +52,7 @@
    "id": "V03",
    "arrival_h": 0.86,
    "loa_m": 250,
-   "workload_t": 10360.6,
+   "workload_t": 7435.0,
    "q_min": 1,
    "q_max": 4
   },
@@ -60,7 +60,7 @@
    "id": "V04",
    "arrival_h": 22.46,
    "loa_m": 294,
-   "workload_t": 13732.5,
+   "workload_t": 20004.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -68,7 +68,7 @@
    "id": "V05",
    "arrival_h": 21.22,
    "loa_m": 250,
-   "workload_t": 10637.1,
+   "workload_t": 8155.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -76,7 +76,7 @@
    "id": "V06",
    "arrival_h": 0.57,
    "loa_m": 294,
-   "workload_t": 7855.5,
+   "workload_t": 2811.8,
    "q_min": 1,
    "q_max": 4
   },
@@ -84,7 +84,7 @@
    "id": "V07",
    "arrival_h": 8.63,
    "loa_m": 250,
-   "workload_t": 14810.2,
+   "workload_t": 26084.9,
    "q_min": 1,
    "q_max": 4
   },
@@ -92,7 +92,7 @@
    "id": "V08",
    "arrival_h": 9.95,
    "loa_m": 294,
-   "workload_t": 12359.8,
+   "workload_t": 13818.0,
    "q_min": 1,
    "q_max": 4
   },
@@ -100,7 +100,7 @@
    "id": "V09",
    "arrival_h": 23.54,
    "loa_m": 330,
-   "workload_t": 5883.5,
+   "workload_t": 1018.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -108,7 +108,7 @@
    "id": "V10",
    "arrival_h": 17.16,
    "loa_m": 330,
-   "workload_t": 11202.2,
+   "workload_t": 9781.9,
    "q_min": 1,
    "q_max": 4
   },
@@ -116,7 +116,7 @@
    "id": "V11",
    "arrival_h": 6.7,
    "loa_m": 330,
-   "workload_t": 10320.9,
+   "workload_t": 7335.3,
    "q_min": 1,
    "q_max": 4
   },
@@ -124,7 +124,7 @@
    "id": "V12",
    "arrival_h": 8.49,
    "loa_m": 330,
-   "workload_t": 13924.6,
+   "workload_t": 21004.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -132,7 +132,7 @@
    "id": "V13",
    "arrival_h": 44.44,
    "loa_m": 330,
-   "workload_t": 10228.2,
+   "workload_t": 7106.4,
    "q_min": 1,
    "q_max": 4
   },
@@ -140,7 +140,7 @@
    "id": "V14",
    "arrival_h": 35.69,
    "loa_m": 250,
-   "workload_t": 15353.6,
+   "workload_t": 29604.9,
    "q_min": 1,
    "q_max": 4
   },
@@ -148,7 +148,7 @@
    "id": "V15",
    "arrival_h": 51.83,
    "loa_m": 330,
-   "workload_t": 12197.8,
+   "workload_t": 13192.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -156,7 +156,7 @@
    "id": "V16",
    "arrival_h": 42.64,
    "loa_m": 330,
-   "workload_t": 9351.9,
+   "workload_t": 5187.9,
    "q_min": 1,
    "q_max": 4
   },
@@ -164,7 +164,7 @@
    "id": "V17",
    "arrival_h": 42.43,
    "loa_m": 200,
-   "workload_t": 12276.1,
+   "workload_t": 13492.4,
    "q_min": 1,
    "q_max": 4
   },
@@ -172,7 +172,7 @@
    "id": "V18",
    "arrival_h": 24.3,
    "loa_m": 250,
-   "workload_t": 10632.9,
+   "workload_t": 8144.3,
    "q_min": 1,
    "q_max": 4
   },
@@ -180,7 +180,7 @@
    "id": "V19",
    "arrival_h": 45.3,
    "loa_m": 200,
-   "workload_t": 11610.6,
+   "workload_t": 11093.0,
    "q_min": 1,
    "q_max": 4
   },
@@ -188,7 +188,7 @@
    "id": "V20",
    "arrival_h": 33.57,
    "loa_m": 250,
-   "workload_t": 7771.7,
+   "workload_t": 2707.8,
    "q_min": 1,
    "q_max": 4
   },
@@ -196,7 +196,7 @@
    "id": "V21",
    "arrival_h": 32.98,
    "loa_m": 200,
-   "workload_t": 11980.7,
+   "workload_t": 12385.8,
    "q_min": 1,
    "q_max": 4
   },
@@ -204,7 +204,7 @@
    "id": "V22",
    "arrival_h": 30.61,
    "loa_m": 200,
-   "workload_t": 9811.1,
+   "workload_t": 6139.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -212,7 +212,7 @@
    "id": "V23",
    "arrival_h": 59.64,
    "loa_m": 250,
-   "workload_t": 11860.2,
+   "workload_t": 11953.7,
    "q_min": 1,
    "q_max": 4
   },
@@ -220,7 +220,7 @@
    "id": "V24",
    "arrival_h": 41.6,
    "loa_m": 294,
-   "workload_t": 9421.0,
+   "workload_t": 5323.9,
    "q_min": 1,
    "q_max": 4
   },
@@ -228,7 +228,7 @@
    "id": "V25",
    "arrival_h": 50.64,
    "loa_m": 294,
-   "workload_t": 12067.3,
+   "workload_t": 12703.3,
    "q_min": 1,
    "q_max": 4
   }

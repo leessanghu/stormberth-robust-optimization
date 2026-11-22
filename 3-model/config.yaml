@@ -1,17 +1,30 @@
 # 모든 방법이 공유하는 설정. 어떤 planner도 이 값을 자기 안에 하드코딩하지 않는다.
 run:
   time_limit_s: 60        # MILP 솔버 1회 제한. 모든 MILP 방법 동일
-  n_realization: 20       # 인스턴스당 실현 시나리오 수
+  n_realization: 60       # 인스턴스당 실현 시나리오 수. CVaR10 을 보려면 20 은 부족
   seed: 20261119
+  search_iters: 1000      # 국소탐색 반복 수. 2000 이상은 이득 없음(실측)
+  restarts: 8             # 재시작 수. 시드 노이즈가 방법 차이보다 커서 필수
 
 scenario:
   n_scenario_saa: 15      # SAA가 모형 안에서 쓰는 시나리오 수 (평가용과 별개)
   gamma: 3                # 로버스트 불확실성 예산 Γ
+  n_vertex: 6             # 꼭짓점 표본 수 (C(n,Γ) 전부는 불가 → 근사)
+  # ★ 불확실성 집합은 평가 분포와 일치해야 한다. 임의로 키우면 평가에서
+  #   일어나지도 않는 시나리오를 방어하느라 손해만 본다 (실측: 6.0h/1.60 쓰면
+  #   nominal 대비 CVaR10 이 Γ=6 에서 -6.71%, 4.0h/1.20 으로 맞추면 Γ=2 에서 +1.73%).
+  late_h: 4.0             # = uncertainty.arrival_jitter_h (도착 변동폭의 상한)
+  heavy_mult: 1.20        # = exp(s)*exp(-s^2/2), s=sqrt(ln(1+cv^2)), cv=workload_cv_error
+                          #   작업량 예측오차의 상방 1시그마 (평균보존). cv 0.20 -> 1.1953
 
-uncertainty:              # 실측 기반 (docs/findings.md)
-  arrival_jitter_h: 4.0   # 도착 시각 교란 폭 (±)
-  workload_cv: 0.237      # 작업량 변동계수 — 부산 실측
-  kappa_range: [0.6, 0.9] # 크레인 생산성 저하 (민감도 대상)
+uncertainty:
+  # ★ 두 가지를 구분한다. 섞으면 어떤 최적화도 FCFS 를 못 이긴다 (실측 확인).
+  #   이질성 = 선박 크기 차이, 터미널이 미리 안다  -> 인스턴스 생성에만
+  #   예측오차 = 부킹 대비 실제, 터미널이 모른다   -> 실현 생성에만
+  workload_cv_hetero: 1.00   # 선박 간 이질성
+  workload_cv_error:  0.20   # 작업량 예측오차
+  arrival_jitter_h:   4.0    # 도착시각 예측오차 (±)
+  kappa_range: [0.6, 0.9]    # 크레인 생산성 저하 (민감도 대상)
 
 grid:                     # 혼잡도 격자
   rho: [0.60, 0.75, 0.90]

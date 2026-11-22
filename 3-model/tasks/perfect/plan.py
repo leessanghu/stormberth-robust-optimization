@@ -1,4 +1,20 @@
-"""perfect — README.md 를 먼저 읽으세요. 채울 것은 plan() 하나뿐입니다."""
+"""perfect"""
+from __future__ import annotations
 
-def plan(inst, cfg):
-    raise NotImplementedError("여기를 채우세요")
+
+def plan(inst, cfg, real=None):
+    """real = {"arrival_h": {선박id: 시각}, "workload_t": {선박id: 톤}} 또는 None.
+
+    반환:
+        {"sequence": {선석id: [선박id, ...]},
+         "cranes":   {선박id: 크레인수}}
+
+    제약 (validate_stage1 이 검사):
+        (C1) 모든 선박이 정확히 한 번씩
+        (C2) loa_m <= 그 선석의 length_m
+        (C3) q_min <= 크레인수 <= min(q_max, 그 선석의 q_max)
+
+    시작 시각은 반환하지 않는다.
+    탐색 예산(시드·반복수·시간제한)은 cfg 에서 읽는다.
+    """
+    raise NotImplementedError

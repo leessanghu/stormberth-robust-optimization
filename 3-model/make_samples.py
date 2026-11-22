@@ -4,11 +4,31 @@
 실행:  python 3-model/make_samples.py
 """
 from __future__ import annotations
-import json, pathlib, random
+import json, math, pathlib, random
 
 OUT = pathlib.Path(__file__).resolve().parent / "instances"
 RATE = 390.0        # t/h, 크레인 1기 (팀원 B가 확정)
-W_MED, W_CV = 10300.0, 0.237     # 기항당 작업량 — 부산 실측
+W_MED = 10300.0     # 기항당 작업량 중앙값 — 부산 실측
+
+# ── 불확실성 두 가지를 반드시 구분한다 ──────────────────────────────────────
+# HET: 선박 간 이질성. 피더선과 초대형선의 크기 차이.
+#      터미널이 **미리 안다** (선적계획·부킹). 인스턴스를 만들 때만 쓴다.
+# ERR: 예측오차. 부킹 대비 실제가 얼마나 틀리나.
+#      터미널이 **모른다**. 실현 시나리오를 만들 때만 쓴다.
+# 둘을 같은 값으로 쓰면 '배가 올 때까지 크기를 모른다'는 뜻이 되어,
+# 어떤 최적화도 FCFS 를 못 이긴다 (실측 확인).
+W_CV_HET = 1.00     # 선박 간 이질성
+W_CV_ERR = 0.20     # 작업량 예측오차
+A_JIT_H  = 4.0      # 도착시각 예측오차 (±시간)
+
+def lognorm(rnd, cv):
+    """변동계수 cv, 평균 1 인 로그정규 난수.
+
+    주의: cv 를 sigma 자리에 그대로 넣으면 안 된다. cv=1.87 이면
+    실제 변동계수가 5.66 이 되고 평균이 5.75배로 뛴다.
+    """
+    s = math.sqrt(math.log(1.0 + cv * cv))
+    return rnd.lognormvariate(0.0, s) * math.exp(-s * s / 2.0)
 
 BERTHS = [{"id": f"B{i+1}", "length_m": L, "q_max": 4}
           for i, L in enumerate([400, 400, 350, 350])]
@@ -31,7 +51,7 @@ def make(rho: float, t_close: float, seed: int) -> dict:
         vessels.append({
             "id": f"V{i+1:02d}", "arrival_h": round(a, 2),
             "loa_m": rnd.choice([200, 250, 294, 330]),
-            "workload_t": round(W_MED * rnd.lognormvariate(0, W_CV), 1),
+            "workload_t": round(W_MED * lognorm(rnd, W_CV_HET), 1),
             "q_min": 1, "q_max": 4,
         })
     return {
@@ -50,9 +70,9 @@ def realizations(inst: dict, n: int, seed: int) -> list[dict]:
         rnd = random.Random(seed * 1000 + k)
         out.append({
             "id": f"{inst['id']}_r{k:02d}",
-            "arrival_h":  {v["id"]: round(max(0.0, v["arrival_h"] + rnd.uniform(-4, 4)), 2)
+            "arrival_h":  {v["id"]: round(max(0.0, v["arrival_h"] + rnd.uniform(-A_JIT_H, A_JIT_H)), 2)
                            for v in inst["vessels"]},
-            "workload_t": {v["id"]: round(v["workload_t"] * rnd.lognormvariate(0, W_CV), 1)
+            "workload_t": {v["id"]: round(v["workload_t"] * lognorm(rnd, W_CV_ERR), 1)
                            for v in inst["vessels"]},
         })
     return out

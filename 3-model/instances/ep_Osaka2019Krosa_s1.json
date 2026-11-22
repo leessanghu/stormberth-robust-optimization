@@ -1,0 +1,151 @@
+{
+ "id": "ep_Osaka2019Krosa_s1",
+ "meta": {
+  "port": "오사카",
+  "season": 2019,
+  "storm": "KROSA",
+  "closure": "2019-08-14",
+  "calls_observed": [
+   0.0,
+   5.0,
+   37.0
+  ],
+  "base_calls": 26.0,
+  "peak_ratio": 1.42,
+  "share": 0.294,
+  "h34": 18.0,
+  "IKE": 283,
+  "dist_km": 273,
+  "source": "PortWatch daily_ports.csv + 1-typhoon/output/asia_port_exposure.csv"
+ },
+ "berths": [
+  {
+   "id": "B1",
+   "length_m": 400,
+   "q_max": 4
+  },
+  {
+   "id": "B2",
+   "length_m": 400,
+   "q_max": 4
+  },
+  {
+   "id": "B3",
+   "length_m": 350,
+   "q_max": 4
+  },
+  {
+   "id": "B4",
+   "length_m": 300,
+   "q_max": 4
+  }
+ ],
+ "cranes": {
+  "total": 12,
+  "rate_tph": 390.0
+ },
+ "vessels": [
+  {
+   "arrival_h": 31.47,
+   "loa_m": 330,
+   "workload_t": 3812.5,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V01"
+  },
+  {
+   "arrival_h": 55.42,
+   "loa_m": 294,
+   "workload_t": 16506.2,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V02"
+  },
+  {
+   "arrival_h": 58.66,
+   "loa_m": 250,
+   "workload_t": 20046.8,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V03"
+  },
+  {
+   "arrival_h": 59.33,
+   "loa_m": 294,
+   "workload_t": 6079.2,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V04"
+  },
+  {
+   "arrival_h": 61.01,
+   "loa_m": 200,
+   "workload_t": 4699.3,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V05"
+  },
+  {
+   "arrival_h": 64.99,
+   "loa_m": 330,
+   "workload_t": 15632.5,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V06"
+  },
+  {
+   "arrival_h": 65.6,
+   "loa_m": 294,
+   "workload_t": 10818.0,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V07"
+  },
+  {
+   "arrival_h": 65.73,
+   "loa_m": 294,
+   "workload_t": 64856.6,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V08"
+  },
+  {
+   "arrival_h": 66.74,
+   "loa_m": 294,
+   "workload_t": 4458.6,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V09"
+  },
+  {
+   "arrival_h": 69.29,
+   "loa_m": 200,
+   "workload_t": 27806.5,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V10"
+  },
+  {
+   "arrival_h": 71.55,
+   "loa_m": 250,
+   "workload_t": 1691.8,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V11"
+  },
+  {
+   "arrival_h": 71.96,
+   "loa_m": 250,
+   "workload_t": 9884.3,
+   "q_min": 1,
+   "q_max": 4,
+   "id": "V12"
+  }
+ ],
+ "recovery": {
+  "t_reopen_h": 24.0,
+  "kappa": 0.75,
+  "kappa_recover_h": 12.0
+ },
+ "horizon_h": 72.0
+}

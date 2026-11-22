@@ -36,7 +36,7 @@
    "id": "V01",
    "arrival_h": 3.22,
    "loa_m": 200,
-   "workload_t": 8455.2,
+   "workload_t": 3641.0,
    "q_min": 1,
    "q_max": 4
   },
@@ -44,7 +44,7 @@
    "id": "V02",
    "arrival_h": 10.79,
    "loa_m": 330,
-   "workload_t": 11724.6,
+   "workload_t": 11480.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -52,7 +52,7 @@
    "id": "V03",
    "arrival_h": 0.68,
    "loa_m": 330,
-   "workload_t": 9181.2,
+   "workload_t": 4862.8,
    "q_min": 1,
    "q_max": 4
   },
@@ -60,7 +60,7 @@
    "id": "V04",
    "arrival_h": 0.05,
    "loa_m": 330,
-   "workload_t": 6377.3,
+   "workload_t": 1351.9,
    "q_min": 1,
    "q_max": 4
   },
@@ -68,7 +68,7 @@
    "id": "V05",
    "arrival_h": 14.19,
    "loa_m": 200,
-   "workload_t": 13745.2,
+   "workload_t": 20069.3,
    "q_min": 1,
    "q_max": 4
   },
@@ -76,7 +76,7 @@
    "id": "V06",
    "arrival_h": 5.2,
    "loa_m": 330,
-   "workload_t": 12510.2,
+   "workload_t": 14417.8,
    "q_min": 1,
    "q_max": 4
   },
@@ -84,7 +84,7 @@
    "id": "V07",
    "arrival_h": 18.33,
    "loa_m": 330,
-   "workload_t": 10643.9,
+   "workload_t": 8174.0,
    "q_min": 1,
    "q_max": 4
   },
@@ -92,7 +92,7 @@
    "id": "V08",
    "arrival_h": 16.24,
    "loa_m": 330,
-   "workload_t": 6856.0,
+   "workload_t": 1743.3,
    "q_min": 1,
    "q_max": 4
   },
@@ -100,7 +100,7 @@
    "id": "V09",
    "arrival_h": 22.13,
    "loa_m": 200,
-   "workload_t": 12165.6,
+   "workload_t": 13070.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -108,7 +108,7 @@
    "id": "V10",
    "arrival_h": 7.98,
    "loa_m": 330,
-   "workload_t": 10666.2,
+   "workload_t": 8234.2,
    "q_min": 1,
    "q_max": 4
   },
@@ -116,7 +116,7 @@
    "id": "V11",
    "arrival_h": 30.83,
    "loa_m": 294,
-   "workload_t": 13945.3,
+   "workload_t": 21114.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -124,7 +124,7 @@
    "id": "V12",
    "arrival_h": 54.46,
    "loa_m": 330,
-   "workload_t": 10693.4,
+   "workload_t": 8308.1,
    "q_min": 1,
    "q_max": 4
   },
@@ -132,7 +132,7 @@
    "id": "V13",
    "arrival_h": 32.74,
    "loa_m": 330,
-   "workload_t": 9875.1,
+   "workload_t": 6281.4,
    "q_min": 1,
    "q_max": 4
   },
@@ -140,7 +140,7 @@
    "id": "V14",
    "arrival_h": 43.76,
    "loa_m": 294,
-   "workload_t": 8512.5,
+   "workload_t": 3728.4,
    "q_min": 1,
    "q_max": 4
   },
@@ -148,7 +148,7 @@
    "id": "V15",
    "arrival_h": 54.24,
    "loa_m": 294,
-   "workload_t": 10255.6,
+   "workload_t": 7173.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -156,7 +156,7 @@
    "id": "V16",
    "arrival_h": 25.57,
    "loa_m": 330,
-   "workload_t": 11068.5,
+   "workload_t": 9378.0,
    "q_min": 1,
    "q_max": 4
   },
@@ -164,7 +164,7 @@
    "id": "V17",
    "arrival_h": 32.17,
    "loa_m": 200,
-   "workload_t": 13079.6,
+   "workload_t": 16858.1,
    "q_min": 1,
    "q_max": 4
   },
@@ -172,7 +172,7 @@
    "id": "V18",
    "arrival_h": 54.97,
    "loa_m": 250,
-   "workload_t": 9707.9,
+   "workload_t": 5915.6,
    "q_min": 1,
    "q_max": 4
   },
@@ -180,7 +180,7 @@
    "id": "V19",
    "arrival_h": 54.51,
    "loa_m": 294,
-   "workload_t": 10068.4,
+   "workload_t": 6724.0,
    "q_min": 1,
    "q_max": 4
   },
@@ -188,7 +188,7 @@
    "id": "V20",
    "arrival_h": 43.73,
    "loa_m": 200,
-   "workload_t": 7400.6,
+   "workload_t": 2280.3,
    "q_min": 1,
    "q_max": 4
   }
