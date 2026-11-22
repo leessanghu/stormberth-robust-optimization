@@ -27,28 +27,6 @@
 
 ---
 
-## 누가 뭘 하나
-
-| 역할 | 채우는 파일 |
-|---|---|
-| FCFS | [`tasks/fcfs/`](tasks/fcfs/) |
-| nominal | [`tasks/nominal/`](tasks/nominal/) |
-| 완전정보 | [`tasks/perfect/`](tasks/perfect/) |
-| 로버스트 · SAA | [`tasks/robust/`](tasks/robust/) [`tasks/saa/`](tasks/saa/) |
-
-**[`START.md`](START.md) 부터 읽으세요.**
-
-각 폴더에는 `README.md` 와 `plan.py` 둘뿐입니다. 채우는 건 함수 하나입니다.
-
-```python
-def plan(inst, cfg, real=None):
-    return {"sequence": {...}, "cranes": {...}}
-```
-
-**푸는 방식은 자유입니다.** 제약·2단계·평가만 `core/` 에 고정돼 있습니다.
-
----
-
 ## 지켜야 할 규칙 3개
 
 다섯 방법을 **공정하게** 비교하기 위한 규칙입니다. 하나라도 깨지면 비교가 무의미해집니다.
