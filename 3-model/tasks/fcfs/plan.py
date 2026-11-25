@@ -26,24 +26,26 @@ def plan(inst, cfg, real=None):
     sequence = {b["id"]: [] for b in berths}
     cranes = {}
 
-    # 3. 기본 크레인 배정 대수
-    q_base = 4
+    # 3. 크레인 정보와 선석별 초기 가용 시각 설
+    total_cranes = inst["cranes"]["total"]
     rate_tph = inst["cranes"]["rate_tph"] #rate_tph: 크레인 한 대의 시간당 처리
     reopen_h = inst["recovery"]["t_reopen_h"] #reopen_h: 항만이 다시 열리는 시각
     available_h = {b["id"]: reopen_h for b in berths} #처음에는 모든 선석을 항만 재개 시각부터 사용가능
 
     # 4. 도착시간이 빠른 선박부터 처리
     for v in vessels:
+        #선박 길이와 최소 크레인 요구량을 모두 충족하는 선석만 후보로 남김
         possible = [
             b for b in berths
             if v["loa_m"] <= b["length_m"]
-            and v["q_min"] <= min(v["q_max"], b["q_max"])
+            and v["q_min"] <= min(v["q_max"], b["q_max"], total_cranes)
         ]
 
         if not possible:
             raise ValueError(f"{v['id']}: 배정 가능한 선석이 없습니다.")
-
-        # 이미 배정 작업이 가장 먼저 끝나는 선석 선택
+            
+        # 앞서 배정된 작업이 가장 먼저 끝날 것으로 예상되는 선석을 선택
+        # 예상 가용 시각이 같으면 선석 ID가 앞서는 곳을 선택
         berth = min(
             possible,
             key=lambda b: (available_h[b["id"]], b["id"]))
@@ -51,11 +53,11 @@ def plan(inst, cfg, real=None):
         
 
         # 허용 범위 내에서 크레인 수 결정
-        q_max = min(v["q_max"], berth["q_max"])
-        q = max(v["q_min"], min(q_base, q_max))
+        q_base = min(v["q_max"], berth["q_max"])
+        q = min(q_base, total_cranes)
 
         #선박 도착 후 선석이 비었을 때 작업 시작 가능.
-        start_h = max(v["arrival_h"], avilable_h[berth_id])
+        start_h = max(v["arrival_h"], available_h[berth_id])
         duration_h = v["workload_t"] / (q * rate_tph)
         available_h[berth_id] = start_h + duration_h
 
