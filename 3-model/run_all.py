@@ -127,23 +127,51 @@ def main():
 def check_order(rows):
     """정리로 보장되는 순서만 점검한다.
 
-    WS <= RP <= EEV (Birge & Louveaux) 는 **정리**다. 깨지면 코드 버그다.
-    반면 'nominal <= FCFS' 는 정리가 아니다 — 불확실성이 크면 nominal 이
+    두 부등식을 **반드시 나눠서** 본다. 묶으면 멀쩡한 결과가 버그로 찍힌다.
+
+    ① 완전정보(WS) <= SAA(RP)   — 진짜 하한. 실현을 보고 짠 계획이
+       못 보고 짠 계획보다 나쁠 수는 없다. 같은 탐색기·같은 실현으로
+       평가하므로 휴리스틱이어도 성립한다. **깨지면 코드 버그다.**
+
+    ② SAA(RP) <= nominal(EEV)   — 여기서는 **정리가 아니다.**
+       Birge & Louveaux 의 RP <= EEV 는 (a) 각 문제를 정확히 풀고
+       (b) 계획에 쓴 그 분포로 평가할 때의 정리다. 우리는 둘 다 아니다 —
+       국소탐색 휴리스틱으로 풀고, 계획에 안 쓴 실현 60개로 평가한다.
+       그래서 1% 안쪽 역전은 정상이다. 참고로만 띄운다.
+
+    'nominal <= FCFS' 도 정리가 아니다. 불확실성이 크면 nominal 이
     명목 시나리오에 과적합해 FCFS 보다 나빠질 수 있다. 실제로 그렇게 나온다.
-    그건 버그가 아니라 결과이므로 경고만 띄운다.
     """
     by = {}
     for r in rows: by.setdefault(r["instance"], {})[r["method"]] = r["mean"]
-    print("\n[정리 점검] 완전정보 <= SAA <= nominal  — 깨지면 버그")
+    print("\n[정리 점검 ①] 완전정보 <= SAA  — 진짜 하한. 깨지면 버그")
+    n_ws = bad_ws = 0
     for inst, d in by.items():
-        chain = [(n, v) for n, v in
-                 [("완전정보", d.get("perfect")), ("SAA", d.get("saa")),
-                  ("nominal", d.get("nominal"))] if v is not None]
-        if len(chain) < 2:
-            print(f"  {inst}: 아직 판단 불가"); continue
-        ok = all(chain[i][1] <= chain[i+1][1] + 1e-6 for i in range(len(chain)-1))
-        print(f"  {'OK ' if ok else 'BUG'} {inst}: " +
-              " <= ".join(f"{n} {v:.1f}" for n, v in chain))
+        w, a = d.get("perfect"), d.get("saa")
+        if w is None or a is None:
+            print(f"  --  {inst}: 아직 판단 불가"); continue
+        n_ws += 1
+        ok = w <= a + 1e-6
+        if not ok: bad_ws += 1
+        print(f"  {'OK ' if ok else 'BUG'} {inst}: 완전정보 {w:.1f} <= SAA {a:.1f}")
+    if n_ws:
+        print(f"  -> {n_ws - bad_ws}/{n_ws} 통과" +
+              ("" if bad_ws == 0 else f"  ** {bad_ws}건 깨짐 — 코드 버그다. 고칠 것 **"))
+
+    print("\n[참고 ②] SAA <= nominal  — 정리가 아니다. 역전해도 버그가 아니다")
+    n_rp = inv = 0
+    for inst, d in by.items():
+        a, nm = d.get("saa"), d.get("nominal")
+        if a is None or nm is None: continue
+        n_rp += 1
+        if a > nm + 1e-6:
+            inv += 1
+            worse = (a - nm) / nm * 100.0 if nm else 0.0
+            print(f"  역전 {inst}: SAA {a:.1f} > nominal {nm:.1f}"
+                  f"  (SAA 가 {worse:.2f}% 나쁨)")
+    if n_rp:
+        print(f"  -> {n_rp - inv}/{n_rp} 성립, {inv}건 역전 "
+              f"(휴리스틱 탐색 + 표본 외 평가에서는 정상)")
 
     print("\n[참고] FCFS 대비 — 정리가 아니다. 음수면 과적합 신호")
     for inst, d in by.items():

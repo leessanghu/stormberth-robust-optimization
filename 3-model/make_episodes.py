@@ -29,7 +29,7 @@ PortWatch 일별 기항 수에서 **기항이 실제로 끊긴 날**을 찾고, 
   선박 사이의 변동이 아니다. 이질성에 쓰면 모든 배가 똑같아져 배정이 무의미해진다.
 """
 from __future__ import annotations
-import csv, json, math, pathlib, random, datetime as dt
+import csv, hashlib, json, math, pathlib, random, datetime as dt
 
 HERE   = pathlib.Path(__file__).resolve().parent
 ROOT   = HERE.parent
@@ -65,6 +65,17 @@ PORT_KO = {  # PortWatch 표기 -> asia_port_exposure.csv 표기
 }
 ROMAN = {v: k.split(" (")[0].replace(" ", "") for k, v in PORT_KO.items()}
 
+# 분석에서 제외하는 항만.
+#   울산 — 선박 수가 같은 터미널 제원 대비 과하다 (평균 25.2척 vs 나머지 16.3척).
+#   그 결과 rho = (SUM W / rate) / (Q * (H - t0)) 가 5건 전부 1 을 넘는다
+#   (1.49 ~ 2.72, 나머지 33건 평균 0.84). rho > 1 은 수요가 72h 안의
+#   터미널 처리능력을 넘는다는 뜻이다. 이건 순서를 어떻게 잡아도 못 푸는
+#   **용량 문제**이지 스케줄링 문제가 아니다. FCFS 가 터지면서 네 방법이
+#   전부 +54% 근처로 붙어 방법 간 차이가 사라진다 (2026-11-27 확인).
+#   살리려면 울산 실제 제원(선석 수·안벽 길이)을 따로 넣어야 한다.
+EXCLUDE_PORTS = {"울산"}
+
+
 
 def load_cfg() -> dict:
     import yaml
@@ -88,7 +99,7 @@ def load_calls() -> dict[str, dict[dt.date, float]]:
     with open(CALLS, encoding="utf-8-sig") as f:
         for r in csv.DictReader(f):
             ko = PORT_KO.get(r["portname"])
-            if ko is None:
+            if ko is None or ko in EXCLUDE_PORTS:
                 continue
             try:
                 d = dt.datetime.strptime(r["date"], "%Y/%m/%d").date()
@@ -160,9 +171,21 @@ def find_episodes() -> list[dict]:
     return eps
 
 
+def port_key(name: str) -> int:
+    """항만 이름 -> 고정 정수.
+
+    내장 hash() 를 쓰면 안 된다. 파이썬은 문자열 해시를 **프로세스마다
+    난수화**한다 (PYTHONHASHSEED). 같은 seed 로 같은 명령을 다시 돌려도
+    인스턴스가 달라진다 — 도착 시각도 작업량도 전부. 재현이 안 되면
+    "시드 5개로 확인한다"는 우리 규칙 자체가 성립하지 않는다.
+    sha256 은 프로세스·버전·기계가 달라도 같은 값을 준다.
+    """
+    return int(hashlib.sha256(name.encode("utf-8")).hexdigest()[:8], 16)
+
+
 def make(ep: dict, seed: int, cv_het: float) -> dict:
     """평년 가동률 RHO_BASE 가 되도록 점유율을 맞춘 가상 터미널 인스턴스."""
-    rnd = random.Random(seed * 7001 + hash(ep["port"]) % 9973)
+    rnd = random.Random(seed * 7001 + port_key(ep["port"]) % 9973)
     per_ch   = W_MED / RATE                       # 선박 1척당 크레인·시간
     n_target = RHO_BASE * Q_TOTAL * 24.0 / per_ch  # 평년 하루에 이만큼 받는 터미널
     share    = n_target / ep["base"]
